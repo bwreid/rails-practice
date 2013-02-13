@@ -1,0 +1,12 @@
+- @mountain.each do |m|
+  %p
+    = link_to("Mountain", mountain_show_path(m.id))
+    Mountain:
+    = m.name
+  %p
+    Location:
+    = m.location
+  %p
+    Elevation:
+    = m.elevation
+  %hr

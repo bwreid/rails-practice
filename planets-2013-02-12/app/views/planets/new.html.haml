@@ -1,0 +1,21 @@
+%form{ :method => 'post', :action => '/planets' }
+  %p
+    %label Name:
+    %input{ :name => 'planet[name]', :autofocus => true}
+  %p
+    %label Image:
+    %input{ :name => 'planet[image]' }
+  %p
+    %label Orbit:
+    %input{ :name => 'planet[orbit]' }
+  %p
+    %label Mass:
+    %input{ :name => 'planet[mass]' }
+  %p
+    %label Diameter:
+    %input{ :name => 'planet[diameter]' }
+  %p
+    %label Moons:
+    %input{ :name => 'planet[moons]' }
+  %p
+    %button= "submit"

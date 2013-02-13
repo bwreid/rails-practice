@@ -1,0 +1,15 @@
+%p
+  Currency:
+  = number_to_currency(@amount)
+
+%p
+  Large Number:
+  = number_to_human(@large_number)
+
+%p
+  Phone Number:
+  = number_to_phone(@phone, :area_code => true)
+
+%p
+  Comma separated:
+  = number_with_delimiter(@comma, :delimiter => ',')

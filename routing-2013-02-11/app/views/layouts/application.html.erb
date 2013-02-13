@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Routing20130211</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<nav>
+  <ul>
+    <li><a href="/start/a">A</a></li>
+    <li><a href="/start/b">B</a></li>
+  </ul>
+</nav>
+
+<form method="get" action="/option">
+  <p><input type='text' name='number'></p>
+  <button>Submit</button>
+</form>
+
+<%= yield %>
+
+</body>
+</html>

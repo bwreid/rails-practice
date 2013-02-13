@@ -1,0 +1,8 @@
+%p
+  There are
+  = pluralize(@person, 'octopus')
+  signed-up and
+  = pluralize(@fellows, 'octopus')
+  helping out.
+
+%p= truncate(@story, :length => 25)

@@ -1,0 +1,4 @@
+= image_tag(@mountain.image)
+%p= @mountain.name
+= button_to "Delete", mountain_delete_path(params[:id])
+= link_to "Edit", mountain_edit_path(params[:id])

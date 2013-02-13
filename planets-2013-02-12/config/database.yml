@@ -1,0 +1,8 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: planets-2013-02-12_development
+  pool: 5
+  host: localhost
+  username: stephenreid
+  password:

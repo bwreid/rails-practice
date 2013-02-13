@@ -1,0 +1,10 @@
+%p this is the planet file.
+- @planets.each do |planet|
+  %p
+  %strong= link_to(planet.name.capitalize, planet_path(planet.id))
+  is
+  = planet.orbit
+  AU away from the sun. It has a diameter of
+  = planet.diameter
+  and has
+  = pluralize(planet.moons, 'moon')

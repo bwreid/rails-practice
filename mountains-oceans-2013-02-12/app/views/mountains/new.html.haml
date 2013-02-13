@@ -1,0 +1,10 @@
+%form{ :method => 'post', :action => mountain_new_path }
+  %label Name:
+  %input{ :name => "mountain[name]", :type => 'text'}
+  %label Location:
+  %input{ :name => "mountain[location]", :type => 'text'}
+  %label Elevation:
+  %input{ :name => "mountain[elevation]", :type => 'text'}
+  %label Image URL:
+  %input{ :name => "mountain[image]", :type => 'text'}
+  = button_to "Submit", mountain_new_path

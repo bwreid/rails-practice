@@ -1,0 +1,13 @@
+nav li {
+  display: inline-block;
+}
+
+#container {
+  width: 600px;
+  margin: 0 auto;
+  color: #ff0000;
+}
+
+.main {
+  width: 100%;
+}

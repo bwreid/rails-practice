@@ -1,0 +1,25 @@
+.left
+  = image_tag(@planet.image)
+.right
+  %p= @planet.name
+  %p
+    Orbit is
+    = @planet.orbit
+  %p
+    Mass is
+    = @planet.mass
+  %p
+    Diameter is
+    = @planet.diameter
+  %p
+    = @planet.name
+    has
+    = pluralize(@planet.moons, 'moon')
+
+/ %form{ :method => "post", :action => "/planets/#{@planet.id}/delete"} THIS WORKS, OR THE BELOW
+/   %button delete
+
+/ = button_to "Delete", planet_delete_path THIS ACTUALLY WORKS AS WELL
+
+= button_to "Delete", planet_delete_path(@planet.id)
+= link_to "Edit", planet_edit_path(@planet.id)
