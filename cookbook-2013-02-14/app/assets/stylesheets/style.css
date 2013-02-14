@@ -1,0 +1,129 @@
+@import url(http://fonts.googleapis.com/css?family=Lato);
+
+body {
+  color: #222;
+}
+
+p {
+  margin-top: 5px;
+}
+
+nav {
+  border-bottom: 1px solid #efefef;
+  padding-bottom: 10px;
+  margin: 15px 0;
+}
+
+nav ul {
+  text-align: center;
+}
+
+nav li {
+  display: inline-block;
+  margin: 0 20px;
+}
+
+nav li a {
+  color: #333;
+  text-decoration: none;
+}
+
+#container {
+  margin: 0 auto;
+  width: 720px;
+  height: auto;
+  text-align: center;
+}
+
+.book_info {
+  padding: 15px 40px;
+}
+
+.book_info > img {
+  width: 400px;
+  border: 4px double #aaa;
+}
+
+.sub {
+  margin: 10px 0;
+  border-top: 1px solid #efefef;
+  border-bottom: 1px solid #efefef;
+  padding: 10px;
+  color: #aaa;
+}
+
+.section_wrap {
+    margin: 10px 0;
+    border: 1px solid #efefef;
+}
+
+.recipe a, .ingredient a {
+  text-decoration: none;
+  color: #A5A5A5;
+}
+
+.recipe a:hover {
+  color: #595959;
+}
+
+.recipe {
+  float: left;
+  height: 250px;
+  width: 250px;
+  margin: 15px;
+  overflow: hidden;
+}
+
+.recipe img {
+  margin: 10px 0;
+  height: 100%;
+}
+
+.ingredient {
+  float: left;
+  height: 100px;
+  width: 100px;
+  margin: 15px;
+  overflow: hidden;
+}
+
+.ingredient img {
+  margin: 5px 0;
+  height: 100%;
+}
+
+.ingredients {
+  float: left;
+  height: 75px;
+  width: 75px;
+  margin: 15px;
+  overflow: hidden;
+}
+
+.ingredients img {
+  width: 100%;
+}
+
+h3 {
+  font-family: 'Lato', sans-serif;
+  font-size: 3em;
+}
+
+h3 a {
+  text-decoration: none;
+  color: #593E3E;
+}
+
+h3 a:hover {
+  color: #595959;
+}
+
+.recipe {
+  color: #444;
+}
+
+.recipe_list {
+  margin: 5px;
+  padding: 5px;
+  border: 1px solid #efefef;
+}

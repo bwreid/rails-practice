@@ -1,0 +1,19 @@
+.book_info
+  = image_tag(@ingredient.image)
+  %h3= link_to(@ingredient.name, @ingredient)
+  %p{ :class => 'sub'}
+    Price:
+    = @ingredient.cost
+  %p{ :class => 'sub'}
+    Measurement:
+    = @ingredient.measurement
+
+  %p This ingredient is used in:
+  - @ingredient.recipes.each do |recipe|
+    .recipe
+      = link_to(recipe.name, recipe)
+      = link_to(image_tag(recipe.image), recipe)
+  %div{ :style => "clear: both"}
+
+  = link_to 'Edit Ingredient', edit_ingredient_path(params['id'])
+  = link_to('Delete Ingredient', @ingredient, :method => 'delete')

@@ -1,0 +1,16 @@
+.book_info
+  = image_tag(@recipe.image)
+  %h3= link_to(@recipe.name, @recipe)
+  %p{ :class => 'sub'}
+    = "Course: #{@recipe.course}. Serving Size: #{@recipe.serving_size}. Time: #{@recipe.prep_time}"
+
+
+  %p This recipe requires:
+  - @recipe.ingredients.each do |ingredient|
+    .recipe
+      = link_to(ingredient.name, ingredient)
+      = link_to(image_tag(ingredient.image), ingredient)
+  %div{ :style => "clear: both"}
+
+  = link_to 'Edit Recipe', edit_recipe_path(params['id'])
+  = link_to('Delete Recipe', @recipe, :method => 'delete')

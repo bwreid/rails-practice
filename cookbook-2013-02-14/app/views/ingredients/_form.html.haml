@@ -1,0 +1,15 @@
+= form_for @ingredient do |form|
+  %p
+    = form.label :name, "Ingredient Title"
+    = form.text_field :name
+  %p
+    = form.label :measurement
+    = form.text_field :measurement
+  %p
+    = form.label :cost
+    = form.text_field :cost
+  %p
+    = form.label :image, "Image URL"
+    = form.text_field :image
+
+    %p= form.submit

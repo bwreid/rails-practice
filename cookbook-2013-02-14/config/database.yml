@@ -1,0 +1,7 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: cookbook-2013-02-14_development
+  pool: 5
+  username: stephenreid
+  password:

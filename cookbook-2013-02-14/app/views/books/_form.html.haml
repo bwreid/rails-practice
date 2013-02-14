@@ -1,0 +1,20 @@
+= form_for @book do |form|
+  %p
+    = form.label :name, "Book Title"
+    = form.text_field :name
+  %p
+    = form.label :chef
+    = form.text_field :chef
+  %p
+    = form.label :cuisine
+    = form.text_field :cuisine
+  %p
+    = form.label :image, "Image URL"
+    = form.text_field :image
+  .recipe_list
+    - Recipe.order(:name).each do |recipe|
+      %p
+        = check_box_tag 'book[recipe_ids][]', recipe.id, recipe.in?(@book.recipes)
+        %span= recipe.name
+
+  %p= form.submit

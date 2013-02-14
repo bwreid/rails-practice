@@ -1,0 +1,18 @@
+= image_tag(@book.image)
+.book_info
+  %h3= link_to(@book.name, @book)
+  %p
+  %p{ :class => 'sub'}
+    = @book.cuisine
+    cuisine. This book includes:
+  - @book.recipes.each do |recipe|
+    .section_wrap
+      .recipe
+        %a= link_to(recipe.name, recipe)
+        %p= link_to(image_tag(recipe.image), recipe)
+      - recipe.ingredients.each do |ingredient|
+        .ingredients
+          %p= link_to(image_tag(ingredient.image), ingredient)
+      %div{ :style => "clear: both"}
+  = link_to 'Edit Book', edit_book_path(params['id'])
+  = link_to('Delete Book', @book, :method => 'delete')

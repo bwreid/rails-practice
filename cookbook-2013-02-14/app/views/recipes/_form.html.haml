@@ -1,0 +1,26 @@
+= form_for @recipe do |form|
+  %p
+    = form.label :name, "Recipe Name"
+    = form.text_field :name
+  %p
+    = form.label :course
+    = form.text_field :course
+  %p
+    = form.label :instructions
+    = form.text_field :instructions
+  %p
+    = form.label :serving_size
+    = form.text_field :serving_size
+  %p
+    = form.label :prep_time
+    = form.text_field :prep_time
+  %p
+    = form.label :image, "Image URL"
+    = form.text_field :image
+  .recipe_list
+    - Ingredient.order(:name).each do |ingredient|
+      %p
+        = check_box_tag 'recipe[ingredient_ids][]', ingredient.id, ingredient.in?(@recipe.ingredients.to_a)
+        %span= ingredient.name
+
+  %p= form.submit
