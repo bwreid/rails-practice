@@ -1,0 +1,5 @@
+- @authors.each do |author|
+  %p= link_to(author.name, author)
+  %p= author.dob.strftime("%B %d, %Y")
+  %p= link_to('Edit', edit_author_path(author))
+  %p= link_to('Delete', author, :method => :delete, :confirm => "Do you really want to delete?")

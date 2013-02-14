@@ -1,0 +1,18 @@
+= form_for @artist do |form|
+  %p
+    = form.label :name
+    = form.text_field :name
+  %p
+    = form.label :nationality
+    = form.text_field :nationality
+  %p
+    = form.label :dob
+    = form.text_field :dob
+  %p
+    = form.label :period
+    = form.text_field :period
+  %p
+    = form.label :image
+    = form.text_field :image
+
+  = form.submit

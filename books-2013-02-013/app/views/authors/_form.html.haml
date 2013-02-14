@@ -1,0 +1,9 @@
+= form_for @author do |author|
+  = author.label :name
+  = author.text_field :name
+  = author.label :image, 'Date of Birth'
+  = author.text_field :dob
+  = author.label :image, 'Image URL'
+  = author.text_field :image
+
+  = author.submit

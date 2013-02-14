@@ -1,0 +1,43 @@
+body {
+  font-family: 'Helvetica Neue', sans-serif;
+}
+
+.indexing {
+  float: left;
+  width: 25%;
+  height: 400px;
+}
+
+.indexing:hover {
+  background-color: #efefef;
+}
+
+.crop {
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+}
+
+.crop img {
+    height: 100%;
+}
+
+ul {
+  list-style: none;
+}
+
+nav li {
+  display: inline;
+  margin-right: 10px;
+}
+
+nav li a {
+  text-decoration: none;
+  color: #222;
+  font-size: 1.5em;
+}
+
+nav li a:hover {
+  color: #ff00ff;
+}
+

@@ -1,0 +1,11 @@
+= form_for @book do |book|
+  = book.label :title
+  = book.text_field :title
+  = book.label :author_id
+  = book.select :author_id, Author.all.map{ |author| [author.name, author.id] }
+  = book.label :genre
+  = book.text_field :genre
+  = book.label :image, "Image URL"
+  = book.text_field :image
+
+  = book.submit

@@ -1,0 +1,5 @@
+%p= @book.title
+%p= @book.genre
+= image_tag(@book.image)
+%p
+  = link_to(@book.author.name, @book.author)

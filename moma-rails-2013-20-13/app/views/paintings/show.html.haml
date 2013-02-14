@@ -1,0 +1,19 @@
+.indexing
+  %ul{ :class => 'crop' }
+    %li= image_tag(@painting.image)
+  %ul
+    %li
+      %strong Title:
+      = @painting.title
+  %ul
+    %li
+      %strong Year:
+      = @painting.year
+  %ul
+    %li
+      %strong Style:
+      = @painting.style
+
+  = link_to "Delete", @painting, :method => :delete, :confirm => 'Do you really want to delete this painting?'
+
+  = link_to "Edit", edit_painting_path(params['id'])

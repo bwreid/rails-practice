@@ -1,0 +1,8 @@
+
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: moma-rails-2013-20-13_development
+  pool: 5
+  username: stephenreid
+  password:

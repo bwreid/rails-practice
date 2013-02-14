@@ -1,0 +1,6 @@
+- @books.each do |book|
+  %p= link_to(book.title, book)
+  %p= book.genre
+  %p= book.image
+  %p= link_to('Edit', edit_book_path(book))
+  %p= link_to('Delete', book, :method => :delete, :confirm => "Do you really want to delete?")

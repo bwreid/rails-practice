@@ -1,0 +1,21 @@
+= form_for @painting do |form|
+  %p
+    = form.label :title
+    = form.text_field :title
+  %p
+    = form.label :artist_id
+    = form.select :artist_id, Artist.all.map{ |artist| [artist.name, artist.id] }
+  %p
+    = form.label :year
+    = form.text_field :year
+  %p
+    = form.label :medium
+    = form.text_field :medium
+  %p
+    = form.label :style
+    = form.text_field :style
+  %p
+    = form.label :image
+    = form.text_field :image
+
+  = form.submit

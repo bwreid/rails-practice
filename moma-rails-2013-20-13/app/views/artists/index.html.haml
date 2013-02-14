@@ -1,0 +1,20 @@
+- @artists.each do |artist|
+  .indexing
+    %ul{ :class => 'crop' }
+      %li= link_to(image_tag(artist.image), artist)
+    %ul
+      %li
+        %strong Name:
+        = link_to(artist.name, artist)
+    %ul
+      %li
+        %strong Nationality:
+        = artist.nationality
+    %ul
+      %li
+        %strong Date of Birth:
+        = artist.dob.strftime("%A, %B %d, %Y")
+    %ul
+      %li
+        %strong Period:
+        = artist.period

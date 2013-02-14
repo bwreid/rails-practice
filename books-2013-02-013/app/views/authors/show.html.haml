@@ -1,0 +1,6 @@
+%p= @author.name
+%p= @author.dob
+%p= image_tag(@author.image)
+- @author.books.each do |book|
+  %p
+    = link_to(book.title, book)

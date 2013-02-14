@@ -1,0 +1,28 @@
+.indexing
+  %ul{ :class => 'crop' }
+    %li= image_tag(@artist.image)
+  %ul
+    %li
+      %strong Name:
+      = @artist.name
+  %ul
+    %li
+      %strong Nationality:
+      = @artist.nationality
+  %ul
+    %li
+      %strong Date of Birth:
+      = @artist.dob.strftime("%A, %B %d, %Y")
+  %ul
+    %li
+      %strong Period:
+      = @artist.period
+  %ul
+    - @artist.paintings.each do |painting|
+      %li= image_tag(painting.image, :class => 'crop')
+      %li= link_to(painting.title, painting)
+
+
+  = link_to "Delete", @artist, :method => :delete, :confirm => 'Do you really want to delete this artist?'
+
+  = link_to "Edit", edit_artist_path(params['id'])
