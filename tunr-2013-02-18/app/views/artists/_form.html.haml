@@ -1,0 +1,31 @@
+= render(:partial => 'shared/errors', :locals => {:error => @artist} )
+
+= form_for @artist do |f|
+  .row
+    .twelve.columns
+      %fieldset
+        %legend Info
+        .row
+          .four.columns
+            = f.label :name
+            = f.text_field :name, :autofocus => true
+          .four.columns
+            = f.label :image
+            = f.text_field :image
+          .four.columns
+            = f.label :background
+            = f.text_field :background
+        .row
+          .twelve.columns
+            = f.label :description
+            = f.text_area :description, :rows => 4
+        .row
+          .twelve.columns
+            %h6= "Albums by #{@artist.name}"
+          - Album.order(:name).each do |album|
+            %p{ :class => 'left skill_checkboxes' }
+              = album.name
+              = check_box_tag 'artist[album_ids][]', album.id, album.in?(@artist.albums)
+          %hr{ :style => 'padding: 5px'}
+          %br
+        = f.submit :class => 'button'

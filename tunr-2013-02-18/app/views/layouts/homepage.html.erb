@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8" />
+
+  <!-- Set the viewport width to device width for mobile -->
+  <meta name="viewport" content="width=device-width" />
+
+  <title>Tunr</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+
+</head>
+<body>
+<div class="front-fill">
+  <!-- Header and Nav -->
+  <%= render :partial => 'layouts/nav' %>
+  <!-- End Header and Nav -->
+
+
+  <!-- First Band (Slider) -->
+  <!-- The Orbit slider is initialized at the bottom of the page by calling .orbit() on #slider -->
+
+  <div class="row main-bg">
+    <div class="twelve columns">
+      <h2>Tunr is the best music app out there.</h2>
+    </div>
+  </div>
+</div>
+  <div class="row main-bg">
+    <div class="twelve columns large">
+      <p>Lorem ipsum commodo in in consequat amet ut ullamco pariatur nostrud cillum proident est elit dolor consequat Excepteur dolore non laborum anim. </p>
+    </div>
+  </div>
+
+  <div class="row main-bg">
+    <div class="twelve columns medium">
+      <p>Lorem ipsum Ut exercitation sit voluptate cupidatat nisi eu voluptate eiusmod dolor aliqua enim et cupidatat veniam nostrud in occaecat.</p>
+    </div>
+  </div>
+
+
+  <!-- Footer -->
+
+  <%= render :partial => 'layouts/footer' %>
+
+  <script type="text/javascript">
+     $(window).load(function() {
+         $('#slider').orbit();
+     });
+  </script>
+
+</body>
+</html>

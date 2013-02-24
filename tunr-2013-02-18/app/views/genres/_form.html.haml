@@ -1,0 +1,21 @@
+= render(:partial => 'shared/errors', :locals => {:error => @genre} )
+
+= form_for @genre do |f|
+  .row
+    .twelve.columns
+      %fieldset
+        %legend Info
+        .row
+          .twelve.columns
+            = f.label :name
+            = f.text_field :name, :autofocus => true
+        .row
+          .twelve.columns
+            %h6 This Genre's Songs
+          - Song.order(:name).each do |song|
+            %p{ :class => 'left skill_checkboxes' }
+              = song.name
+              = check_box_tag 'genre[song_ids][]', song.id, song.in?(@genre.songs)
+          %hr{ :style => 'padding: 5px'}
+          %br
+        = f.submit :class => 'button'

@@ -1,0 +1,18 @@
+%br
+.row
+  .twelve.columns
+    %table.twelve
+      %thead
+        %tr
+          %th User
+          %th Balance
+          %th Image
+          %th Delete
+        %tbody.users
+        - @users.each do |user|
+          %tr
+            %td
+              = link_to( user.name, user, :class => ('round label success' if user.is_admin) )
+            %td= number_to_currency(user.balance)
+            %td= image_tag(user.image)
+            %td= link_to("Delete", user, :method => :delete, :confirm => "Are you sure you want to delete #{user.name}?", :class => 'button tiny radius') if user.id != @auth.id

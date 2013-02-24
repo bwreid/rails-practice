@@ -1,0 +1,21 @@
+<div class="fixed contain-to-grid">
+  <nav class="top-bar">
+    <ul>
+      <li class="name"><h1><a href="<%= root_path %>">Tunr</a></h1></li>
+      <li class="toggle-topbar"><a href="#"></a></li>
+    </ul>
+    <section>
+      <ul class='left'>
+        <li class='has-dropdown'><a href='#'>Browse</a>
+          <ul class='dropdown'>
+            <!-- <li><%= link_to('Songs', songs_path) %></li> -->
+            <li><%= link_to('By Artist', artists_path) %></li>
+            <li><%= link_to('By Album', albums_path) %></li>
+            <!-- <li><%= link_to('Genres', genres_path) %></li> -->
+          </ul>
+        </li>
+      </ul>
+        <%== intelli_nav %>
+    </section>
+  </nav>
+</div>

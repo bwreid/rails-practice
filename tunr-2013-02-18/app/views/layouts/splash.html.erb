@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8" />
+
+  <!-- Set the viewport width to device width for mobile -->
+  <meta name="viewport" content="width=device-width" />
+
+  <title>Tunr</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+
+</head>
+<% @background = Artist.all.shuffle.first.background %>
+<body style="background: url(<%= @background %>) no-repeat top center;">
+
+  <!-- Header and Nav -->
+  <%= render :partial => 'layouts/nav' %>
+  <!-- End Header and Nav -->
+
+
+  <!-- First Band (Slider) -->
+  <!-- The Orbit slider is initialized at the bottom of the page by calling .orbit() on #slider -->
+
+  <div class="row">
+    <div class="twelve columns">
+      <div class="fancy-header">
+        <div class="fancy-wrap">
+          <h1>Tunr</h1>
+          <h2>Music done right</h2>
+          <p>Lorem ipsum in deserunt amet quis minim Duis labore Excepteur eu dolor dolor commodo cillum Excepteur aliquip voluptate veniam id est veniam Excepteur ex magna in qui aliqua in in labore voluptate est eiusmod dolor officia ut in sed tempor elit do ad minim. </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br />
+
+  <div class="row">
+    <div class="row-crop">
+      <% Artist.all.shuffle[0..2].each do |artist| %>
+        <div class="four columns">
+          <%= link_to(image_tag(artist.image), artist) %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+  <br/>
+  <div class="row main-bg">
+    <div class="six columns">
+      <p>Lorem ipsum sit do proident nulla eu non sint deserunt aute qui eiusmod qui in ad minim Excepteur in culpa ex anim officia amet sint laborum laborum Duis do irure eu enim non aliqua irure voluptate ea reprehenderit sint tempor veniam cupidatat minim cillum culpa aliqua velit tempor culpa occaecat dolor ex aute qui consequat amet in labore enim amet et dolor eu Excepteur aliqua do cupidatat elit eiusmod amet aliquip ullamco. </p>
+    </div>
+    <div class="six columns">
+      <p>Aliquip ullamco Duis in quis occaecat consectetur exercitation dolor Ut nostrud laborum non anim voluptate et Excepteur anim aliqua magna aute sunt reprehenderit ullamco laboris Excepteur aliquip proident sunt officia labore et Duis ea Excepteur ut consectetur fugiat dolor in reprehenderit amet incididunt minim magna officia Ut Duis aute quis dolor sunt dolor laboris ut est deserunt deserunt ex elit in Duis cupidatat pariatur aliqua in pariatur enim voluptate aliqua proident deserunt do ex in veniam ad do in consequat. </p>
+    </div>
+  </div>
+
+
+  <!-- Footer -->
+
+  <%= render :partial => 'layouts/footer' %>
+
+  <script type="text/javascript">
+     $(window).load(function() {
+         $('#slider').orbit();
+     });
+  </script>
+
+</body>
+</html>

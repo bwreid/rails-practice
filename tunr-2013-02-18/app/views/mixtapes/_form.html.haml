@@ -1,0 +1,28 @@
+= render(:partial => 'shared/errors', :locals => {:error => @mixtape} )
+
+= form_for @mixtape do |f|
+  .row
+    .twelve.columns
+      %fieldset
+        %legend Your Songs
+        .row
+          .twelve.columns
+            = f.label :name
+            = f.text_field :name, :autofocus => true
+        - if @auth.mixtapes.map(&:songs).flatten.empty?
+          %p You don't have any songs!
+        - else
+          .row
+            - album_list_check = []
+            .twelve.columns
+              - @auth.mixtapes.map(&:songs).flatten.uniq.sort_by{ |e| e[:album] }.each do |song|
+                - if album_list_check.exclude?(song.album.name)
+                  %h6{ :class => 'mixtape-album-section' }= link_to(song.album.name, song.album)
+                - album_list_check << song.album.name
+                %p{ :class => 'left skill_checkboxes' }
+                  %strong
+                    = song.name
+                  = check_box_tag 'mixtape[song_ids][]', song.id, song.in?(@mixtape.songs)
+        %hr
+        = f.submit :class => 'button small'
+        = link_to("Delete Mixtape", @mixtape, :method => 'delete', :class => 'button small secondary right')

@@ -1,0 +1,45 @@
+%h2
+  = @song.name
+  by
+  = @song.artist.name if @song.artist
+
+.row
+  .new-row
+    .four.columns
+      .row-crop
+        = link_to( image_tag(@song.artist ? @song.artist.image : 'http://placehold.it/400x300' ), @song.artist)
+      %p= link_to(@song.artist.name, @song.artist) if @song.artist
+    .four.columns
+      .row-crop
+        = link_to( image_tag(@song.album ? @song.album.image : 'http://placehold.it/400x300' ), @song.album)
+      %p= link_to(@song.album.name, @song.album) if @song.album
+    .four.columns
+      .genre
+        %span
+          - @song.genres.each do |genre|
+            = link_to(genre.name, genre)
+            %br
+.row
+  %fieldset
+    %legend= @song.name
+    = render :partial => 'shared/player'
+
+- if @auth.mixtapes.count > 0
+  .row
+    %form{ :method => 'get', :action => purchase_song_path}
+      %fieldset
+        .twelve.columns
+          %legend Add to a Mixtape!
+          - if @auth.mixtapes.count == 0
+            %p You have no mixtapes! Get it together!
+          - else
+            - @auth.mixtapes.each do |mixtape|
+              %p{ :class => 'left skill_checkboxes' }
+                = mixtape.name
+                = check_box_tag 'song[mixtape_ids][]', mixtape.id, mixtape.songs.include?(@song)
+      .row
+        .four.columns.centered
+          - if !@auth.has_song?(@song)
+            %submit= link_to("Purchase for #{number_to_currency(@song.price)}", purchase_song_path, :class => 'button', :type => 'submit')
+
+= render :partial => 'form' if is_admin

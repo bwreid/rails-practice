@@ -1,0 +1,22 @@
+- @background = @artist.background if !is_admin
+
+.fancy-header
+  .fancy-wrap
+    %h1= @artist.name
+    %p= @artist.description
+
+.row
+  .twelve.columns
+    %h6
+      Albums by
+      = @artist.name
+  .new-row
+  - @artist.albums.uniq.each do |album|
+    .four.columns
+      .album-wrap
+        .album-image{ :style => "background: url(#{album.image}) center center; box-shadow: 0px 0px 5px #222; opacity: 0.4;"}
+          / = link_to( image_tag(album.image ? album.image : 'http://placehold.it/400x300' ), album)
+        .album-title
+          %h5= link_to(album.name, album)
+
+= render :partial => 'form' if is_admin

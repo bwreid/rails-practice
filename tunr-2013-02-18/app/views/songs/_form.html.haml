@@ -1,0 +1,27 @@
+= render(:partial => 'shared/errors', :locals => {:error => @song} )
+
+= form_for @song do |f|
+  .row
+    .twelve.columns
+      %fieldset
+        %legend Info
+        .row
+          .four.columns
+            = f.label :name
+            = f.text_field :name, :autofocus => true, :required => true
+          .four.columns
+            = f.label :filename, "Youtube Embed Code"
+            = f.text_field :filename, :required => true
+          .four.columns
+            = f.label :price
+            = f.text_field :price
+        .row
+          .twelve.columns
+            %h6 Applicable Genres
+          - Genre.order(:name).each do |genre|
+            %p{ :class => 'left skill_checkboxes' }
+              = genre.name
+              = check_box_tag 'song[genre_ids][]', genre.id, genre.in?(@song.genres)
+          %hr{ :style => 'padding: 5px'}
+          %br
+        = f.submit :class => 'button'

@@ -1,0 +1,24 @@
+= render(:partial => 'shared/errors', :locals => {:error => @album} )
+
+= form_for @album do |f|
+  .row
+    .twelve.columns
+      %fieldset
+        %legend Info
+        .row
+          .six.columns
+            = f.label :name
+            = f.text_field :name, :autofocus => true
+          .six.columns
+            = f.label :image
+            = f.text_field :image
+        .row
+          .twelve.columns
+            %h6 Songs in the Album
+          - Song.order(:name).each do |song|
+            %p{ :class => 'left skill_checkboxes' }
+              = song.name
+              = check_box_tag 'album[song_ids][]', song.id, song.in?(@album.songs)
+          %hr{ :style => 'padding: 5px'}
+          %br
+        = f.submit :class => 'button'

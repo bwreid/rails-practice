@@ -1,0 +1,20 @@
+.row.song-listing
+  .two.columns
+    %h6= @song.name if !is_admin
+  .eight.columns
+    - @media = @song.filename
+    - if @auth.present?
+      - if @auth.has_song?(@song)
+        = @song.filename.length > 6 ? (render :partial => 'shared/yembed') : "No file just yet!"
+      - elsif is_admin
+        = render :partial => 'songs/form'
+      - else
+        %span
+          = form_tag buy_song_path(@song) do
+            = submit_tag("Purchase now for #{number_to_currency(@song.price)}", :class => 'button tiny')
+    - else
+      %span
+        You don't have access to this song.
+        = link_to("Login to Purchase!", login_path)
+  .two.columns
+    = link_to("Refund for #{number_to_currency(@song.price * 0.3)}", refund_song_path(@song.id), :method => 'delete', :class => 'button tiny secondary') if @auth.has_song?(@song)

@@ -1,0 +1,22 @@
+- @background = @album.artists.shuffle.first.background if !is_admin
+
+.fancy-header
+  .fancy-wrap
+    %h1= @album.name
+    %h2
+      by
+      - @album.artists.uniq.each do |artist|
+        = link_to(artist.name, artist)
+
+.row
+  .twelve.columns.album-songs
+    %fieldset
+      %legend= @album.name
+      - @album.songs.order(:name).each do |song|
+        - @song = song
+        = render :partial => 'shared/player'
+    - if !@album.owns_entire_album?(@auth)
+      = form_tag buy_album_path(@album) do
+        = submit_tag("Purchase #{@album.name} for #{number_to_currency(@album.value(@auth))}", :class => 'button secondary')
+
+= render :partial => 'form' if is_admin

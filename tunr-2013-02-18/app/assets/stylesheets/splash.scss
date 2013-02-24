@@ -1,0 +1,28 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300,600,700);
+@import url(http://fonts.googleapis.com/css?family=Gentium+Book+Basic:700);
+
+
+
+body {
+  background: #fff;
+  color: #222;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.fixed {
+  opacity: 0.85;
+}
+
+.main-bg {
+  h2 {
+    margin: 50px 0;
+    font-size: 100px;
+    color: #113F8C;
+    text-transform: uppercase;
+    font-family: 'Gentium Book Basic', serif;
+  }
+}
+
+img {
+  padding: 5px;
+}

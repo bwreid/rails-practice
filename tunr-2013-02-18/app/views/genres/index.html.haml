@@ -1,0 +1,7 @@
+%h3 Genres
+
+.row
+  - @genres.each do |genre|
+    .four.columns
+      .genre
+        %span= link_to(genre.name, genre)

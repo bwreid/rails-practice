@@ -1,0 +1,17 @@
+- @background = @mixtape.songs.shuffle.first.artist.background if @mixtape.songs.count > 0
+
+.fancy-header
+  .fancy-wrap
+    %h1= @mixtape.name
+
+.row
+  .twelve.columns.album-songs
+    %fieldset
+      %legend= @mixtape.name
+      - @mixtape.songs.order(:name).each do |song|
+        - @song = song
+        = render :partial => 'shared/player'
+
+
+
+= render :partial => 'form' if @auth.present? && !@auth.is_admin && @mixtape.name != "Library"

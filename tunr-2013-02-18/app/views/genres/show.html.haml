@@ -1,0 +1,14 @@
+- @background = @genre.songs.shuffle.first.artist.background if !is_admin
+%h2
+  = @genre.name
+  Songs
+
+.row
+  .new-row
+    - @genre.songs.each do |song|
+      .four.columns
+        .row-crop
+          = link_to( image_tag(song.album.image ? song.album.image : 'http://placehold.it/400x300' ), song)
+        %p= link_to(song.name, song)
+
+= render :partial => 'form' if is_admin
