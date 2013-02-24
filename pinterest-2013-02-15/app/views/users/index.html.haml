@@ -1,0 +1,8 @@
+- @users.each do |u|
+  %form{ :method => 'post', :action => '/users/sendtxt'}
+    = u.name
+    = u.phone
+    %br
+    %input{ :type => 'hidden', :name => 'first', :value => "#{u.name}"}
+    %input{ :type => 'text', :name => 'body'}
+    %button Send Text
