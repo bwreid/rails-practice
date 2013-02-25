@@ -5,11 +5,9 @@
     %h1 Artists
 
 .row
-  .new-row
   - @artists.each do |artist|
-    .four.columns
+    .four.columns{ :style => 'float: left;' }
       .album-wrap
         .album-image{ :style => "background: url(#{artist.image}) center center; box-shadow: 0px 0px 5px #222; opacity: 0.4;"}
-          / = link_to( image_tag(album.image ? album.image : 'http://placehold.it/400x300' ), album)
         .album-title
           %h5= link_to(artist.name, artist)

@@ -25,4 +25,4 @@
                   = check_box_tag 'mixtape[song_ids][]', song.id, song.in?(@mixtape.songs)
         %hr
         = f.submit :class => 'button small'
-        = link_to("Delete Mixtape", @mixtape, :method => 'delete', :class => 'button small secondary right')
+        = link_to("Delete Mixtape", @mixtape, :method => 'delete', :class => 'button small secondary right') if @mixtape.id.present?

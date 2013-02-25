@@ -21,11 +21,11 @@
             = f.text_area :description, :rows => 4
         .row
           .twelve.columns
-            %h6= "Albums by #{@artist.name}"
-          - Album.order(:name).each do |album|
+            %h6= "Songs by #{@artist.name}"
+          - Song.order(:name).each do |song|
             %p{ :class => 'left skill_checkboxes' }
-              = album.name
-              = check_box_tag 'artist[album_ids][]', album.id, album.in?(@artist.albums)
+              = song.name
+              = check_box_tag 'artist[song_ids][]', song.id, song.in?(@artist.songs)
           %hr{ :style => 'padding: 5px'}
           %br
         = f.submit :class => 'button'

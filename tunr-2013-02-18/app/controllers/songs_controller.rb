@@ -37,7 +37,8 @@ class SongsController < ApplicationController
 
   def buy
     @song = Song.find(params[:id])
-    if @song.update_attributes(params[:user])
+    if @auth.balance >= @song.price
+      @song.update_attributes(params[:user])
       @auth.balance -= @song.price
       @auth.save
       @auth.mixtapes.where( :name => "Library" ).first.songs << @song
@@ -51,7 +52,7 @@ class SongsController < ApplicationController
 
   def refund
     song = Song.find( params[:id] )
-    @auth.balance += (song.price * 0.3)
+    @auth.balance += (song.price * 0.7)
     @auth.save
     @auth.mixtapes.each { |x| x.songs.delete(song) }
     redirect_to(@auth.mixtapes.where( :name => "Library" ).first)
