@@ -1,0 +1,22 @@
+.container
+  .heading
+    %h1 WDI ATM
+  .checking
+    %h2
+      %span= 0
+      Checking
+    = text_field_tag "check"
+    = submit_tag "Deposit", :class => 'deposit-btn'
+    = submit_tag "Withdraw", :class => 'withdraw-btn'
+  .savings
+    %h2
+      %span= 0
+      Savings
+    = text_field_tag "sav"
+    = submit_tag "Deposit", :class => 'deposit-btn'
+    = submit_tag "Withdraw", :class => 'withdraw-btn'
+  .error
+    %p You can't do that!
+  .log
+    %ul
+      %li text

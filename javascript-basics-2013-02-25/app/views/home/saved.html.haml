@@ -1,0 +1,21 @@
+%button{ :class => 'hide' } Hide
+%button{ :class => 'show' } Show
+
+.box
+  %h1 Hello.
+  %h2 How goes it.
+  %button New Button
+  .class A div in a class
+
+  .field= text_field_tag 'first'
+  .field= submit_tag 'Submit', :id => 'btn'
+
+  .field= text_field_tag 'color'
+  .field= submit_tag 'Submit', :id => 'color'
+
+.calculator
+  = text_field_tag 'first'
+  = text_field_tag 'second'
+  = submit_tag "Calculate!", :id => 'calculate'
+  .response
+    %p

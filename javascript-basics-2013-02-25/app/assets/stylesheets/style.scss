@@ -1,0 +1,24 @@
+.class {
+  width: auto;
+  background: #000;
+  p { padding: 10px 0; }
+}
+
+.calculator {
+  padding: 50px;
+  margin: 50px;
+}
+
+.success {
+  border: 1px solid green;
+  background: #fff;
+}
+
+.alert {
+  border: 1px solid red;
+  background: #fff;
+}
+
+.box {
+  display: none;
+}
