@@ -1,12 +1,12 @@
 # == Schema Information
 #
-# Table name: subscribers
+# Table name: administrators
 #
 #  id         :integer          not null, primary key
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
 
-class Subscriber < ActiveRecord::Base
+class Administrator < ActiveRecord::Base
   has_one :user, :as => :userable, dependent: :destroy
 end

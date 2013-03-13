@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: subscribers
+# Table name: administrators
 #
 #  id         :integer          not null, primary key
 #  created_at :datetime         not null
@@ -9,21 +9,21 @@
 
 require 'spec_helper'
 
-describe Subscriber do # TESTING OUT THIS CLASS
+describe Administrator do # TESTING OUT THIS CLASS
 
   describe '.new' do # TESTING OUT THIS CLASS METHOD
     it 'should create a new subscriber object' do
-      subscriber = Subscriber.new
-      expect(subscriber).to be_an_instance_of(Subscriber)
+      administrator = Administrator.new
+      expect(administrator).to be_an_instance_of(Administrator)
     end
   end
 
   describe '#user' do
     it 'has a user' do
-      subscriber = Subscriber.new
+      administrator = Administrator.new
       user = User.new
-      subscriber.user = user
-      expect(subscriber.user).to be_an_instance_of(User)
+      administrator.user = user
+      expect(administrator.user).to be_an_instance_of(User)
     end
 
     # it 'has username, email, password, and password confirmation' do
@@ -37,9 +37,8 @@ describe Subscriber do # TESTING OUT THIS CLASS
 
   describe '.create' do
     it 'has an id and was saved' do
-      subscriber = Subscriber.create
-      expect(subscriber.id).to_not be nil
+      administrator = Administrator.create
+      expect(administrator.id).to_not be nil
     end
   end
-
 end

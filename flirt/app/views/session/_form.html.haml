@@ -1,0 +1,7 @@
+= form_tag( login_path, :remote => true ) do
+  = label_tag 'Username'
+  = text_field_tag 'username'
+  = label_tag 'Password'
+  = password_field_tag 'password'
+  = button_to_function('Cancel', 'close_form()')
+  = submit_tag "Go Flirt", :class => 'button'

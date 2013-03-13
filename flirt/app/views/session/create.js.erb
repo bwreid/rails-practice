@@ -1,0 +1,6 @@
+<% if session[:user_id].present? %>
+  $('#new').empty().after('<div>').addClass('.alert-box .success').text('You have logged in!');
+<% else %>
+  $('#new').empty();
+  $('#new').append('<%=j render :partial => 'form' %>');
+<% end %>

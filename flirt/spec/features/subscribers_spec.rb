@@ -12,7 +12,7 @@ describe 'Subscribers' do # THIS IS LIKE THE SUBSCRIBERS CONTROLLER
     it 'displays the create subscriber button', :js => true do
       visit root_path
       click_link('Register')
-      page.should have_button('Create Subscriber')
+      page.should have_button('Create User')
     end
   end
 
@@ -23,14 +23,14 @@ describe 'Subscribers' do # THIS IS LIKE THE SUBSCRIBERS CONTROLLER
       fill_in('Username', with: 'x')
       fill_in('Email', with: 'x')
 
-      fill_in 'subscriber_password', with: 'x'
-      fill_in 'subscriber_password_confirmation', with: 'x'
+      fill_in 'user_password', with: 'x'
+      fill_in 'user_password_confirmation', with: 'x'
 
-      click_button('Create Subscriber')
+      click_button('Create User')
 
       page.should_not have_button('Cancel')
       page.should have_text('You have created an account!')
-      expect(Subscriber.first.username).to eq('x')
+      expect(Subscriber.first.user.username).to eq('x')
     end
   end
 
