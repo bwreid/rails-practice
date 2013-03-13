@@ -4,6 +4,13 @@
   .fancy-wrap
     %h1= @artist.name
     %p= @artist.description
+    %br
+    %fieldset
+      %legend Next Concert
+      %p
+        %strong= @artist.next_concert.display_name
+        %br= @artist.next_concert.location.city
+        = link_to("Learn More", @artist.next_concert.performances.first.artist.uri)
 
 .row
   .twelve.columns

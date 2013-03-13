@@ -5,11 +5,8 @@ gem 'jquery-rails'
 gem 'pg'
 gem 'json'
 gem 'haml'
-gem 'twitter'
 gem 'httparty'
-gem 'nokogiri'
 gem 'songkickr'
-require 'open-uri'
 gem 'bcrypt-ruby'
 
 group :assets do

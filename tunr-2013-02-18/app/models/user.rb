@@ -29,7 +29,7 @@ class User < ActiveRecord::Base
   validates :image, :presence => true
   validates :balance, :numericality => { :greater_than_or_equal_to => 0 }
   attr_accessible :name, :image, :twitter, :password, :password_confirmation, :balance
-  has_many :mixtapes
+  has_many :mixtapes, :inverse_of => :user
   has_and_belongs_to_many :albums
 
   def has_song?(song)

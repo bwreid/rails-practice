@@ -1,0 +1,26 @@
+.priority {
+  width: auto;
+  padding: 2px;
+  margin: 5px;
+  text-align: center;
+  border-radius: 3px;
+  opacity: 0.7;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+#color {
+  display: none;
+}
+
+form > span.minicolors {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.arrows {
+  text-align: center;
+  margin-bottom: 20px;
+}

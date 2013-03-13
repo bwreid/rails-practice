@@ -1,0 +1,3 @@
+- if query.errors.any?
+  - query.errors.full_messages.each do |msg|
+    .alert-box.secondary= msg

@@ -1,0 +1,7 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: today-jax-2013-02-28_development
+  pool: 5
+  username: stephenreid
+  password:

@@ -1,0 +1,16 @@
+.container
+  .wrapper
+    .header
+      .bucket
+      %h1 paintr
+      = text_field_tag "color", nil, :autofocus => true
+      = button_tag 'Add Color', :id => 'submit'
+      = button_tag 'Clear', :id => 'clear'
+      #colors.clear
+      = text_field_tag "image", nil
+      = button_tag 'Add image', :id => 'submit_image'
+      = button_tag 'Clear Background', :id => 'clear_background'
+      #images.clear
+
+    #canvas
+

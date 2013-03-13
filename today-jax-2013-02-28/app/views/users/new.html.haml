@@ -1,0 +1,7 @@
+%h1 New User
+%p Lorem ipsum esse nulla ut ad incididunt enim aliqua adipisicing cillum fugiat ad officia esse Excepteur voluptate.
+%hr
+- if @auth.nil?
+  = render :partial => 'form'
+- else
+%p You're already logged in...

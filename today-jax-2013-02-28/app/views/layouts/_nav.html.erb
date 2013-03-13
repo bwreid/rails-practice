@@ -1,0 +1,38 @@
+<div class="fixed contain-to-grid">
+  <nav class="top-bar">
+    <ul>
+      <li class="name"><h1><%= link_to("todayjax", root_path) %></h1></li>
+      <li class="toggle-topbar"><a href="#"></a></li>
+    </ul>
+    <section>
+
+      <% if @auth.present? %>
+      <ul class="left">
+        <li><%= link_to("My Page", @auth) %></li>
+      </ul>
+      <ul class="left">
+        <li><%= link_to("Priorities", priorities_path) %></li>
+      </ul>
+      <ul class="left">
+        <li><%= link_to("Create Task", @auth) %></li>
+      </ul>
+
+      <% end %>
+
+      <% if @auth.nil? %>
+      <ul class="right">
+        <li><%= link_to("Login", login_path) %></li>
+      </ul>
+      <ul class="right">
+        <li><%= link_to("Create Account", new_user_path) %></li>
+      </ul>
+
+      <% else %>
+      <ul class="right">
+        <li><%= link_to('Log Out', login_path, :method => 'delete') %></li>
+      </ul>
+      <% end %>
+
+    </section>
+  </nav>
+</div>

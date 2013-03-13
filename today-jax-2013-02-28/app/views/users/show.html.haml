@@ -1,0 +1,6 @@
+%h1= "Hi, #{@auth.name}"
+= link_to( "Edit Account", edit_users_path )
+
+- @auth.tasks.each do |task|
+  = task.name
+  = task.is_complete

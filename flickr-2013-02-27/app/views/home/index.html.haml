@@ -1,0 +1,22 @@
+.container
+  .wrapper
+    %h1 flickr
+    .search
+      = label_tag 'Search'
+      = text_field_tag 'input', nil, :autofocus => true
+      %br
+      = label_tag 'Height'
+      = text_field_tag 'height'
+      %br
+      = label_tag 'Width'
+      = text_field_tag 'width'
+      %br
+      = label_tag 'Length (Seconds)'
+      = text_field_tag 'length'
+    .buttons
+      = button_tag 'Search Flickr', :id => 'search'
+      = button_tag 'Clear Photos', :id => 'clear'
+      = button_tag 'Start', :id => 'start'
+      = button_tag 'Stop', :id => 'stop'
+    / #large-image
+    #images

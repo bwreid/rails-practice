@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width" />
+  <title>LetsGitPhysical20130307</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <%= render :partial => 'layouts/nav' %>
+
+  <div class="row">
+    <div class="large-12 columns">
+      <%= yield %>
+    </div>
+  </div>
+
+
+  <!-- body content here -->
+
+  <!-- <script>
+  document.write('<script src=' +
+  ('__proto__' in {} ? 'js/vendor/zepto' : 'js/vendor/jquery') +
+  '.js><\/script>')
+  </script> -->
+
+  <script>
+  $(document).foundation();
+  </script>
+
+</body>
+</html>

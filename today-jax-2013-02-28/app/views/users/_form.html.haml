@@ -1,0 +1,24 @@
+= render( :partial => 'shared/errors', :locals => {:query => @user} )
+
+.row
+  .twelve.columns
+    %fieldset
+      = form_for @user do |f|
+        .row
+          .six.columns
+            = f.label :first
+            = f.text_field :first, :autofocus => true
+            = f.label :email
+            = f.text_field :email
+            %hr
+            = f.label :password
+            = f.password_field :password
+          .six.columns
+            = f.label :last
+            = f.text_field :last
+            = f.label :username
+            = f.text_field{ :class => '' } :username
+            %hr
+            = f.label :password_confirmation
+            = f.password_field :password_confirmation
+        = f.submit "Register", :class => 'button'

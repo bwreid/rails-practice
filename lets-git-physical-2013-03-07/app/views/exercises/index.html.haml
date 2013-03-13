@@ -1,0 +1,20 @@
+%h1 Exercises
+
+.row
+  .large-3.columns
+    = link_to( "New Exercise", new_exercise_path, :remote => true, :class => 'button success expand' )
+  = form_tag nil, :class => 'custom' do
+    .large-3.columns
+      #activity_dropdown
+        = select_tag "activities", options_from_collection_for_select( @exercises.all.uniq { |ex| ex.activity }, "id", "activity" )
+    .large-3.columns
+      = submit_tag "Chart Exercises", :id => 'show_chart', :class => 'button secondary expand'
+    .large-3.columns
+      #myChart{ :style => 'height: 250px' }
+
+
+#activity_form
+
+
+.activity_list
+  = render :partial => 'exercises'

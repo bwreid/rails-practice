@@ -1,0 +1,33 @@
+%h1 Order Your Priorities Here
+
+%script
+  var priority_array = [];
+.row
+  #new_priority.six.columns
+    .new_button
+      = button_tag 'New Priority', :id=> 'toggleButton', :class => 'button'
+    %fieldset.hide
+      %legend New Priority
+      = form_tag do
+        = label_tag 'Name'
+        = text_field_tag 'name'
+        = label_tag 'Color'
+        = text_field_tag 'color', nil, :class => 'minicolors'
+        = label_tag 'Value'
+        = text_field_tag 'value'
+        = hidden_field_tag 'priority_id'
+        = button_tag 'New Priority', :id => 'create_p', :class => 'button'
+        = button_tag 'Edit Priority', :id => 'update_p', :class => 'button secondary'
+        = link_to( 'Cancel', '#', :id => 'cancel_priority', :class => 'button secondary right')
+  #priority_list.six.columns
+    - @priorities.each do |pr|
+      %script
+        = "priority_array.push({id:#{pr.id}, title:'#{pr.title}', level:#{pr.level}, color:'#{pr.color}'})";
+      .priority
+        %h6= pr.title
+        %h6= pr.level
+        .hide= pr.color
+        .hide= pr.id
+      .arrows
+        = image_tag( "arrow_up.png", :class => 'up' )
+        = image_tag( "arrow_down.png", :class => 'down' )

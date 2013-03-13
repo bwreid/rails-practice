@@ -1,0 +1,11 @@
+.row
+  %h1 Home Page
+  .large-12.columns
+    = link_to( 'New', new_user_path, :class => 'button success')
+    = link_to( 'New', new_user_path, :remote => true, :class => 'button alert')
+
+.row.user_list
+  .large-12.columns
+    #new_user
+    %ul
+      = render :partial => 'users'

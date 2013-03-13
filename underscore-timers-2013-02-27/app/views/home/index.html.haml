@@ -1,0 +1,14 @@
+.container
+  .wrapper
+    .header
+      = text_field_tag "enter"
+      = submit_tag "Add Number", :id => 'submit'
+    .buttons
+      = submit_tag "Square", :id => 'square'
+      = submit_tag "Function", :id => 'fn'
+      = submit_tag "Start", :id => 'start'
+      = submit_tag "Stop", :id => 'stop'
+      = submit_tag "Clear", :id => 'clear'
+    .calculation
+      %p Select a number
+    #numbers

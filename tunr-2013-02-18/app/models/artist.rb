@@ -16,4 +16,8 @@ class Artist < ActiveRecord::Base
   validates :name, :image, :presence => true, :uniqueness => true
   has_many :songs
   has_many :albums, :through => :songs # NOT BELONGS TO
+  def next_concert
+    remote = Songkickr::Remote.new 'yhdqJAGvmLz9tekS'
+    concert = remote.events(type: 'concert', artists: name).results.first
+  end
 end
