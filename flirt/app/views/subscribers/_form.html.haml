@@ -7,5 +7,5 @@
   = f.password_field :password
   = f.label :password_confirmation
   = f.password_field :password_confirmation
-  = link_to_function('Cancel', 'close_form()')
+  = link_to_function('Cancel', 'close_form()', :class => 'button secondary')
   = f.submit nil, :class => 'button'

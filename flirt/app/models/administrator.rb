@@ -13,4 +13,5 @@
 class Administrator < ActiveRecord::Base
   attr_accessible :ssn, :role, :phone
   has_one :user, :as => :userable, dependent: :destroy
+  validates :role, :presence => true
 end

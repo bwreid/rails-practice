@@ -21,4 +21,6 @@
 class Subscriber < ActiveRecord::Base
   attr_accessible :tagline, :bio, :preferences, :age, :gender, :occupation, :location, :status, :ethnicity, :interests, :income
   has_one :user, :as => :userable, dependent: :destroy
+  validates :bio, :tagline, :gender, :presence => true
+  validates :age, :numericality => { :greater_than => 17 }
 end

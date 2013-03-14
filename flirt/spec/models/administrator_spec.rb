@@ -23,8 +23,13 @@ describe Administrator do # TESTING OUT THIS CLASS
 
   describe '.create' do
     it 'has an id and was saved' do
-      administrator = Administrator.create
+      administrator = Administrator.create( :role => 'DBA' )
       expect(administrator.id).to_not be nil
+    end
+
+    it 'fails validation if you do not give it a role' do
+      administrator = Administrator.create
+      expect(administrator.id).to be nil
     end
   end
 

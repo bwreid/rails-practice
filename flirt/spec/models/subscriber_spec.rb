@@ -31,9 +31,14 @@ describe Subscriber do # TESTING OUT THIS CLASS
 
   describe '.create' do
     it 'has an id and was saved' do
-      subscriber = Subscriber.create
+      subscriber = Subscriber.create( :tagline => 'x', :gender => 'x', :bio => 'x', :age => 18 )
       expect(subscriber.id).to_not be nil
     end
+  end
+
+  it 'validates if tagline, gender, bio, and age are present and age is greater than 17' do
+    subscriber = Subscriber.create( :age => 16 )
+    expect(subscriber.id).to be nil
   end
 
   describe '#user' do

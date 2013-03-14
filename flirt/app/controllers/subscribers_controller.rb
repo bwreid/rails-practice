@@ -5,7 +5,7 @@ class SubscribersController < ApplicationController
 
   def create
     @user = User.create( params[:user] )
-    subscriber = Subscriber.create
+    subscriber = Subscriber.create( tagline: 'change your tagline!', bio: 'change your bio!', gender: 'pick a gender', age: 999 )
     subscriber.user = @user
   end
 end

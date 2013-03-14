@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'Subscribers' do # THIS IS LIKE THE SUBSCRIBERS CONTROLLER
+describe 'Subscribers Controller' do # THIS IS LIKE THE SUBSCRIBERS CONTROLLER
   describe 'GET /' do # THESE ARE THE 'VERBS' WE'RE TRYING OUT
     it 'displays register button on the root path' do
       visit root_path
@@ -32,6 +32,7 @@ describe 'Subscribers' do # THIS IS LIKE THE SUBSCRIBERS CONTROLLER
       page.should have_text('You have created an account!')
       expect(Subscriber.first.user.username).to eq('x')
     end
+
   end
 
   describe 'JS close_form()' do

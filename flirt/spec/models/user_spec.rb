@@ -38,5 +38,10 @@ describe User do # TESTING OUT THIS CLASS
       expect(user.id).to_not be nil
     end
 
+    it 'fails validation if username or email is blank while supplying password' do
+      user = User.create( :password => 'x', :password_confirmation => 'x' )
+      expect(user.id).to be nil
+    end
+
   end
 end

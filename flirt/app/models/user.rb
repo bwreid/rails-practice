@@ -16,4 +16,5 @@ class User < ActiveRecord::Base
   attr_accessible :username, :email, :password, :password_confirmation
   has_secure_password
   belongs_to :userable, :polymorphic => true
+  validates :username, :email, :presence => true
 end
