@@ -2,9 +2,20 @@
 #
 # Table name: subscribers
 #
-#  id         :integer          not null, primary key
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  id          :integer          not null, primary key
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  tagline     :string(255)
+#  bio         :string(255)
+#  preferences :string(255)
+#  age         :integer
+#  gender      :string(255)
+#  occupation  :string(255)
+#  location    :string(255)
+#  status      :string(255)
+#  ethnicity   :string(255)
+#  interests   :string(255)
+#  income      :decimal(, )
 #
 
 require 'spec_helper'
@@ -18,6 +29,13 @@ describe Subscriber do # TESTING OUT THIS CLASS
     end
   end
 
+  describe '.create' do
+    it 'has an id and was saved' do
+      subscriber = Subscriber.create
+      expect(subscriber.id).to_not be nil
+    end
+  end
+
   describe '#user' do
     it 'has a user' do
       subscriber = Subscriber.new
@@ -25,20 +43,33 @@ describe Subscriber do # TESTING OUT THIS CLASS
       subscriber.user = user
       expect(subscriber.user).to be_an_instance_of(User)
     end
-
-    # it 'has username, email, password, and password confirmation' do
-    #   subscriber = Subscriber.new( username: 'x', email: 'x@y.com', password: 'x', password_confirmation: 'x' )
-    #   expect(subscriber.username).to eq('x')
-    #   expect(subscriber.email).to eq('x@y.com')
-    #   expect(subscriber.password).to eq('x')
-    #   expect(subscriber.password_confirmation).to eq('x')
-    # end
   end
 
-  describe '.create' do
-    it 'has an id and was saved' do
-      subscriber = Subscriber.create
-      expect(subscriber.id).to_not be nil
+  describe '#metadata' do
+    it 'has subscriber properties' do
+      subscriber = Subscriber.new(
+        tagline: 'x',
+        bio: 'x',
+        preferences: 'x, y',
+        age: 25,
+        gender: 'x',
+        occupation: 'x',
+        location: 'x',
+        status: 'x',
+        ethnicity: 'x',
+        interests: 'a, b, c',
+        income: 50_000 )
+      expect(subscriber.tagline).to eq('x')
+      expect(subscriber.bio).to eq('x')
+      expect(subscriber.preferences).to eq('x, y')
+      expect(subscriber.age).to eq(25)
+      expect(subscriber.gender).to eq('x')
+      expect(subscriber.occupation).to eq('x')
+      expect(subscriber.location).to eq('x')
+      expect(subscriber.status).to eq('x')
+      expect(subscriber.ethnicity).to eq('x')
+      expect(subscriber.interests).to eq('a, b, c')
+      expect(subscriber.income).to eq(50_000)
     end
   end
 
