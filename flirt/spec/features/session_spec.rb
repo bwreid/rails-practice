@@ -24,13 +24,39 @@ describe 'Session' do # THIS IS LIKE THE SUBSCRIBERS CONTROLLER
       visit root_path
 
       click_link('Login')
-      fill_in 'username', with: 'x'
+      fill_in 'username', with: user.username
+      fill_in 'password', with: 'x'
+
+      click_button('Go Flirt')
+      page.should_not have_button('Go Flirt')
+      page.should have_link(user.username)
+      page.should_not have_link('Register')
+      page.should_not have_link('Login')
+
+      visit root_path
+      page.should have_link(user.username)
+      page.should_not have_link('Register')
+      page.should_not have_link('Login')
+    end
+
+    it 'logs the user off of the system', :js => true do
+      visit root_path
+
+      click_link('Login')
+      fill_in 'username', with: user.username
       fill_in 'password', with: 'x'
 
       click_button('Go Flirt')
 
-      page.should_not have_button('cancel')
+      click_link('Logout')
+      page.should_not have_link(user.username)
+      page.should have_link('Register')
+      page.should have_link('Login')
 
+      visit root_path
+      page.should_not have_link(user.username)
+      page.should have_link('Register')
+      page.should have_link('Login')
     end
 
     it 'DOES NOT create a new session for the user with incorrect password', :js => true do

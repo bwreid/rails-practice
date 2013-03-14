@@ -1,4 +1,6 @@
 <% if session[:user_id].present? %>
+  $('.sign-in-links').empty();
+  $('.nav-wrap').empty().append('<%=j render :partial => 'layouts/nav' %>');
   $('#new').empty().after('<div>').addClass('.alert-box .success').text('You have logged in!');
 <% else %>
   $('#new').empty();

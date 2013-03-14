@@ -20,6 +20,13 @@
 
     <!-- Right Nav Section -->
     <ul class="right">
+      <% if @auth %>
+      <li class="divider"></li>
+      <li><%= link_to("#{ @auth.username }", '#' ) %>
+      <li class="divider"></li>
+      <li><%= link_to("Logout", login_path, :method => 'delete', :remote => true ) %>
+      <li class="divider"></li>
+      <% end %>
     </ul>
   </section>
 </nav>

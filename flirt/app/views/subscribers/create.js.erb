@@ -1,1 +1,6 @@
+<% if @user.valid? %>
 $('#new').empty().after('<div>').addClass('.alert-box .success').text('You have created an account!');
+<% else %>
+$('#new').find('alert-box').remove();
+$('#new').append('<%=j render :partial => 'shared/errors' %>');
+<% end %>

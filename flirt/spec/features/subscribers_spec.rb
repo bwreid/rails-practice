@@ -33,6 +33,17 @@ describe 'Subscribers Controller' do # THIS IS LIKE THE SUBSCRIBERS CONTROLLER
       expect(Subscriber.first.user.username).to eq('x')
     end
 
+    it 'DOES NOT create a new subscriber, fails validation', :js => true do
+      visit root_path
+      click_link('Register')
+
+      click_button('Create User')
+
+      page.should have_button('Create User')
+      page.should have_text('3 errors in this form:')
+      page.has_css?('#form ul li', :count => 3)
+    end
+
   end
 
   describe 'JS close_form()' do
