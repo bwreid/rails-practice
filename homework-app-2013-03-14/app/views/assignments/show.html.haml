@@ -1,0 +1,8 @@
+%h1= @assignment.name
+- array = @assignment.students.gsub(/\n/,'').gsub('-','').split.each_slice(@assignment.group_size).to_a
+- count = 1
+- array.each do |group|
+  %h4= "Group #{ count }" if group.length != 1
+  - group.each do |member|
+    %p= member
+  - count += 1

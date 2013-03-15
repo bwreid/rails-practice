@@ -1,2 +1,7 @@
-= link_to('New Student', new_student_path, :remote => true)
-#new_student_form
+.row
+  .large-6.columns
+    = link_to('New Student', new_student_path, :remote => true)
+    #new_student_form
+  .large-6.columns.students
+    - if Student.all.any?
+      = render :partial => 'index'

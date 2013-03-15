@@ -1,0 +1,7 @@
+.row
+  .large-6.columns
+    = link_to('New Assignment', new_assignment_path, :remote => true)
+    #new_assignment_form
+  .large-6.columns.assignments
+    - if Assignment.all.any?
+      = render :partial => 'assignments/index'

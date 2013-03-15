@@ -1,0 +1,5 @@
+= form_for @student, :remote => true do |f|
+  = f.label :name
+  = f.text_field :name
+  = f.submit
+  = link_to_function('Cancel', 'close_student_form()', :class => 'button small secondary')

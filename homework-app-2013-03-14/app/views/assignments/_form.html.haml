@@ -1,0 +1,7 @@
+= form_for @assignment, :remote => true do |f|
+  = f.label :name
+  = f.text_field :name
+  = f.label :group_size
+  = f.text_field :group_size
+  = f.submit
+  = link_to_function('Cancel', 'close_assignment_form()', :class => 'button')

@@ -1,0 +1,5 @@
+- Assignment.all.each do |assign|
+  .assignment_div
+    %p
+      = link_to(assign.name, assign)
+      = "- #{pluralize(assign.group_size, 'people')} per group"
