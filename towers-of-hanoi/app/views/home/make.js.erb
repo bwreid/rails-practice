@@ -1,0 +1,4 @@
+$('.first-tower').empty().append('<%=j render :partial => 'first_tower' %>');
+$('input.button').addClass('disabled');
+window.setTimeout(window.tick, 1000);
+window.size_blocks(<%= @blocks %>);

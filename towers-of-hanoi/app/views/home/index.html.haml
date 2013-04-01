@@ -1,0 +1,17 @@
+.row
+  %h1 Towers of Hanoi
+  %h2 0
+  = form_tag(make_path, remote: true) do
+    .large-4.columns
+      = label_tag '# of Blocks'
+      = text_field_tag 'blocks'
+    .large-4.columns
+      = submit_tag nil, class: 'button'
+    .large-4.columns
+      = link_to('Reset', '#', class: 'button alert', id: 'reset')
+.row.all-towers
+  .large-4.columns.first-tower
+    - if @blocks
+      = render :partial => 'first_tower'
+  .large-4.columns.second-tower
+  .large-4.columns.third-tower

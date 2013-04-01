@@ -1,4 +1,4 @@
-- Assignment.all.each do |assign|
+- Assignment.order(:name).each do |assign|
   .assignment_div
     %p
       = link_to(assign.name, assign)

@@ -17,4 +17,13 @@ class User < ActiveRecord::Base
   has_secure_password
   belongs_to :userable, :polymorphic => true
   validates :username, :email, :presence => true
+
+  def sub
+    self.userable if self.userable.is_a?(Subscriber)
+  end
+
+  def admin
+    self.userable if self.userable.is_a?(Administrator)
+  end
+
 end

@@ -1,0 +1,5 @@
+- if Story.all.present?
+  %ol
+    - Story.all.each do |story|
+      .story
+        %li= link_to(story.title, story.url, target: '_blank')

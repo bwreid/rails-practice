@@ -10,4 +10,8 @@ class SubscribersController < ApplicationController
       subscriber.user = @user
     end
   end
+
+  def purchase
+    @auth.sub.purchase_plan( params[:plan] )
+  end
 end

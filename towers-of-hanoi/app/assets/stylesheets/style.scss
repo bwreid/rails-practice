@@ -1,0 +1,10 @@
+@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700,900);
+
+@import "custom_settings.scss";
+@import "scss/foundation.scss";
+
+.all-towers { padding: 20px 0; }
+.first-tower, .second-tower, .third-tower { width: auto; min-height: 300px; border: 1px solid #efefef; }
+
+.block { height: 25px; width: 50px; background: #000; margin: 10px auto; }
+.picked { background: #ff00ff; }

@@ -3,7 +3,12 @@ Flirt::Application.routes.draw do
   post '/login' => 'session#create'
   delete '/login' => 'session#destroy'
 
-  resources :subscribers, :only => [:new, :create]
+  resources :subscribers, :except => [:index, :destroy] do
+    collection do
+      post :purchase
+    end
+  end
+
   resources :users, :only => [:new, :create]
   root :to => 'welcome#index'
 end

@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "file": "flirt.js",
+  "sourceRoot": "",
+  "sources": [
+    "flirt.coffee"
+  ],
+  "names": [],
+  "mappings": ";AAAA;CAAA,KAAA,IAAA;CAAA;CAAA,CAAA,CAAa,MAAA,CAAb;CACE,GAAA,CAAA,CAAA;CACA,IAAA,MAAO;CAFT,EAAa;CAAb"
+}

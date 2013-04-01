@@ -1,8 +1,10 @@
+.galaxy
 .row
-  .large-12.columns
-    %h1 FLIRT
-    - if @auth.nil?
-      .sign-in-links
-        = link_to( 'Register', new_subscriber_path, :remote => true, :class => 'button' )
-        = link_to( 'Login', login_path, :remote => true, :class => 'button' )
+  .large-6.columns.large-centered
+    %h1{ class: 'hero' } Nerd Fl<span>i</span>rt
+    .sign-in-links
+      = render :partial => 'sign_in_links'
     #new
+.row
+  .content
+    = render :partial => 'subscriptions/index'

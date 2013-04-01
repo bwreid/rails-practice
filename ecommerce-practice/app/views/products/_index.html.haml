@@ -1,0 +1,24 @@
+- if @auth
+  .row
+    #map_canvas
+    %script
+      var markers = [];
+      = "display_map(40, -72, 3);"
+    .large-8.columns.large-centered{ :style => 'text-align: center;'}
+      %h1 View all Products
+      - @products.each do |product|
+        %script
+          = "add_marker(#{product.lat}, #{product.lon}, '#{product.name}')"
+        .row
+          .large-6.columns
+            = image_tag(product.image.thumb)
+          .large-6.columns{ style: 'display: table; min-height: 250px;'}
+            .product-text{ style: 'display: table-cell; vertical-align: middle;'}
+              %h3= product.name
+              %p= product.description
+              %p
+                %strong Location:
+                %br= product.address
+              - product.tags.each do |tag|
+                %span.label.radius= tag.name
+

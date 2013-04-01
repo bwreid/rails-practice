@@ -1,0 +1,30 @@
+@import url(http://fonts.googleapis.com/css?family=Vollkorn);
+
+.wrapper { font-family: 'Vollkorn', serif; color: #2E2E2E; }
+.container {
+  width: 740px; margin: 0 auto;
+  h1 { text-align: center; font-size: 3em ;}
+  .button-link {
+    margin: 30px 30px 40px;
+    text-align: center;
+    a {
+      background: #B2382D;
+      color: #fff;
+      font-family: 'Helvetica', sans-serif;
+      font-size: 16px;
+      padding: 10px 15px;
+      text-decoration: none;
+    }
+  }
+  ol li {
+    margin: 10px 0;
+    a, a:visited {
+    color: #2E2E2E;
+    font-size: 1.5em;
+    text-decoration: none;
+      &:hover {
+        color: #B2382D;
+      }
+    }
+  }
+}

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130313204503) do
+ActiveRecord::Schema.define(:version => 20130315180417) do
 
   create_table "administrators", :force => true do |t|
     t.datetime "created_at", :null => false
@@ -22,8 +22,8 @@ ActiveRecord::Schema.define(:version => 20130313204503) do
   end
 
   create_table "subscribers", :force => true do |t|
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
     t.string   "tagline"
     t.string   "bio"
     t.string   "preferences"
@@ -35,6 +35,20 @@ ActiveRecord::Schema.define(:version => 20130313204503) do
     t.string   "ethnicity"
     t.string   "interests"
     t.decimal  "income"
+    t.integer  "subscription_id"
+    t.date     "expires"
+  end
+
+  create_table "subscriptions", :force => true do |t|
+    t.string   "plan"
+    t.integer  "duration"
+    t.decimal  "cost"
+    t.integer  "num_photos", :default => 0
+    t.integer  "num_emails", :default => 0
+    t.integer  "num_texts",  :default => 0
+    t.boolean  "is_alist",   :default => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
   end
 
   create_table "users", :force => true do |t|

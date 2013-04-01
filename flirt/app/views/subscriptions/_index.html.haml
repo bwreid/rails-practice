@@ -1,0 +1,10 @@
+- if @auth
+  - if @auth.sub && !@auth.sub.has_subscription?
+    - Subscription.all.each do |sub|
+      .large-4.columns
+        .panel
+          %h2= "#{sub.plan} Plan"
+          %h3{ :class => 'price' }
+            = sub.cost == 0 ? "Free!" : number_to_currency(sub.cost)
+          %p Lorem ipsum anim proident pariatur Ut cillum cillum deserunt Duis do in dolore dolor exercitation sint occaecat in aliquip occaecat veniam veniam dolore aliqua nostrud.
+          = button_to(sub.plan, purchase_subscribers_path(plan: sub.plan), :remote => true, :class => 'button success right')

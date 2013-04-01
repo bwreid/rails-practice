@@ -1,0 +1,26 @@
+.wide-color
+  .row
+    .large-12.columns
+      %h3 Login
+      = form_for @product, html: { multipart: true }, :remote => true do |f|
+        .row
+          .large-6.columns
+            = f.label :name
+            = f.text_field :name, placeholder: 'Product Name'
+            = f.label :cost
+            = f.text_field :cost, placeholder: 'Product Price ($)'
+          .large-6.columns
+            = f.label :description
+            = f.text_area :description
+            = label_tag :tags
+            = text_field_tag :tags, nil, placeholder: 'Tags'
+        .row
+          .large-6.columns
+            = f.label :address
+            = f.text_field :address, placeholder: 'Your Location'
+          .large-6.columns
+            = f.label :image, 'Upload Image'
+            = f.file_field :image
+        .row
+          .large-12.columns
+            = f.submit nil, class: 'button'

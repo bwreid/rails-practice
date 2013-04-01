@@ -1,0 +1,4 @@
+$('.nav-wrapper').empty().append('<%=j render partial: 'shared/nav' %>');
+$('#show_products').empty().append('<%=j render partial: 'products/index' %>');
+if(document.location.pathname != '/')
+  document.location.href = '/';

@@ -1,0 +1,7 @@
+<% if @auth %>
+  $('#login_form').slideUp();
+  $('.nav-wrapper').empty().append('<%=j render partial: 'shared/nav' %>');
+  $('#show_products').empty().hide().append('<%=j render partial: 'products/index' %>').fadeIn();
+<% else %>
+  $('#login_form').empty().append('<%=j render partial: 'form' %>');
+<% end %>

@@ -1,0 +1,14 @@
+.wrapper
+  .container
+    %h1
+      Hacker Hacker News
+    .button-link
+      .hide{ style: 'display: none;'}
+        = form_tag(scrape_stories_path, :remote => true) do
+          = number_field_tag('pages')
+          .button-link
+            = submit_tag 'Hack'
+    #slider
+
+    #stories
+      = render partial: 'index'
